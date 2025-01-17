@@ -25,7 +25,7 @@ The project utilizes an Atmel SAMD21E18 microcontroller (MCU) to interface with 
 
 ## Uploading Custom Firmware
 
-For uploading custom code, we recommend using an IDE with PlatformIO installed. The standard Arduino IDE won't work due to the PCB's unique pin layout. Luckily, PlatformIO board and variant files are included in the [Build](/build/) directory within project repository for your convenience. The board core has been forked from the [Adafruit Arduino SAMD Core](https://github.com/adafruit/ArduinoCore-samd).
+For uploading custom code, we recommend using an IDE with PlatformIO installed. The standard Arduino IDE won't work due to the PCB's unique pin layout. Luckily, PlatformIO board and variant files are included in the [build](/build/) directory within the project repository for your convenience. The board core has been forked from the [Adafruit Arduino SAMD Core](https://github.com/adafruit/ArduinoCore-samd).
 
 ## A Note on Uploading
 
