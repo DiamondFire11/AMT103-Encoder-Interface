@@ -1,4 +1,4 @@
-# AMT103-Encoder-Interface
+# Introducing the AMT103 Encoder Interface
 
 The AMT103 Encoder Interface as the name implies interfaces with an AMT103 encoder, processing its quadrature signals to track position via interrupt-driven incremental counts. It leverages real-time signal decoding for precise motion tracking and communicates the extracted data to the robot system via CAN-FD, ensuring fast and reliable data transfer. Ideal for robotics and automation applications requiring high-speed encoder feedback with interrupt-based efficiency.
 
