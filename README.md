@@ -5,8 +5,8 @@ The AMT103 Encoder Interface as the name implies interfaces with an AMT103 encod
 ## Hardware Features
 
 - Atmel SAMD21: The same microcontroller used on the Arduino Zero and many Adafruit dev-boards. Allows for ease of software modification.
-- MCP2518FD CAN-FD Controller
-  - Implements ISO 11898-1:2015 for automotive grade CAN-FD compliance
+- MCP2518FD Mixed CAN-FD and CAN2.0B Controller
+  - Conforms to ISO 11898-1:2015 for automotive grade CAN-FD compliance
   - On-board low PPM 40MHz CAN clock (divided to 20MHz to comply with SPI max clock on uC)
 - Wide compatability: Supports wide range of 5V and 3.3V rotary encoders.
 - USB 2.0 Type-C connector: Given the prevalence of USB Type-C the board comes equipped to take advantage of spare cables
