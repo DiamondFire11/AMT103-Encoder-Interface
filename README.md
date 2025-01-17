@@ -19,13 +19,13 @@ The AMT103 Encoder Interface as the name implies interfaces with a Same Sky AMT1
 
 This mod requires some hands-on assembly. We'll provide the necessary build files, but you'll need to order and assemble the PCB yourself using the included GERBER, schematics, and Draftsman files.
 
-The project utilizes an Atmel SAMD21E18 microcontroller (MCU) to connect the joystick to your computer. To program the MCU with the bootloader, you'll need an SWD programmer. The Adafruit Trinket M0 bootloader is recommended for this purpose, allowing you to easily configure the PCB as a custom Arduino board.
+The project utilizes an Atmel SAMD21E18 microcontroller (MCU) to interface with the encoder. To program the MCU with the bootloader, you'll need an SWD programmer. The Adafruit Trinket M0 bootloader is recommended for this purpose, allowing you to easily setup the PCB as a custom Arduino board.
 
 **We strongly recommend utilizing solder paste stencils (available as .GTP and .GBP GERBER files) for this project.** Soldering the small SMD components can be challenging for beginners. Recommended stencil manufacturers can be found in the [Resources](#resources) section.
 
 ## Uploading Custom Firmware
 
-For uploading custom code, we recommend using an IDE with PlatformIO installed. The standard Arduino IDE won't work due to the PCB's unique pin layout. Luckily, PlatformIO board and variant files are included in the project repository for your convenience.
+For uploading custom code, we recommend using an IDE with PlatformIO installed. The standard Arduino IDE won't work due to the PCB's unique pin layout. Luckily, PlatformIO board and variant files are included in the [Build](/build/) directory within project repository for your convenience. The board core has been forked from the [Adafruit Arduino SAMD Core](https://github.com/adafruit/ArduinoCore-samd).
 
 ## A Note on Uploading
 
