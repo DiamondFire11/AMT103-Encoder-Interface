@@ -12,7 +12,7 @@ The AMT103 Encoder Interface as the name implies interfaces with a Same Sky AMT1
 - USB 2.0 Type-C connector: Given the prevalence of USB Type-C the board comes equipped to take advantage of spare cables
 - And much more...
 
-- ## Getting Started
+## Getting Started
 
 This mod requires some hands-on assembly. We'll provide the necessary build files, but you'll need to order and assemble the PCB yourself using the included GERBER, schematics, and Draftsman files.
 
