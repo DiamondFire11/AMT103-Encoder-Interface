@@ -1,0 +1,5 @@
+Record=TopLevelDocument|FileName=CAN-FD.SchDoc|SheetNumber=1
+Record=NoMainPathDocument|SourceDocument=CAN-FD.SchDoc|FileName=IO.SchDoc|SheetNumber=2
+Record=NoMainPathDocument|SourceDocument=CAN-FD.SchDoc|FileName=Logic Level Shifting.SchDoc|SheetNumber=5
+Record=NoMainPathDocument|SourceDocument=CAN-FD.SchDoc|FileName=MCU.SchDoc|SheetNumber=3
+Record=NoMainPathDocument|SourceDocument=CAN-FD.SchDoc|FileName=Power Supplies.SchDoc|SheetNumber=4
