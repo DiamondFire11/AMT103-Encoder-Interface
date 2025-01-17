@@ -17,7 +17,7 @@ The AMT103 Encoder Interface as the name implies interfaces with a Same Sky AMT1
 
 ## Getting Started
 
-This mod requires some hands-on assembly. We'll provide the necessary build files, but you'll need to order and assemble the PCB yourself using the included GERBER, schematics, and Draftsman files.
+The AMT103 Encoder Interface requires some hands-on assembly. We'll provide the necessary build files, but you'll need to order and assemble the PCB yourself using the included GERBER, schematics, and Draftsman files, and PnP files.
 
 The project utilizes an Atmel SAMD21E18 microcontroller (MCU) to interface with the encoder. To program the MCU with the bootloader, you'll need an SWD programmer. The Adafruit Trinket M0 bootloader is recommended for this purpose, allowing you to easily setup the PCB as a custom Arduino board.
 
