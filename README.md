@@ -2,6 +2,8 @@
 
 The AMT103 Encoder Interface as the name implies interfaces with a Same Sky AMT103 encoder (formerly CUI Devices), processing its quadrature signals to track position via interrupt-driven incremental counts. It leverages real-time signal decoding for precise motion tracking and communicates the extracted data to the robot system via CAN-FD, ensuring fast and reliable data transfer. Ideal for robotics and automation applications requiring high-speed encoder feedback with interrupt-based efficiency.
 
+![pcb_render](relative%20path/docs/renders/AMT103Interface.PNG?raw=true)
+
 ## Hardware Features
 
 - Atmel SAMD21: The same microcontroller used on the Arduino Zero and many Adafruit dev-boards. Allows for ease of software modification.
