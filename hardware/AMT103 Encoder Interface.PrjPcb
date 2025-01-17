@@ -70,7 +70,7 @@ GenerateClassCluster=0
 DocumentUniqueId=
 
 [Document2]
-DocumentPath=ARCS Lab CAN-FD Encoder.PCBDwf
+DocumentPath=AMT103 Encoder Interface.PCBDwf
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -87,7 +87,7 @@ GenerateClassCluster=0
 DocumentUniqueId=YEAEUYIP
 
 [Document3]
-DocumentPath=ARCS Lab CAN-FD Encoder.PcbDoc
+DocumentPath=AMT103 Encoder Interface.PcbDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -189,7 +189,7 @@ GenerateClassCluster=0
 DocumentUniqueId=VVIOQAQE
 
 [Document9]
-DocumentPath=ARCS Lab CAN-FD Encoder.BomDoc
+DocumentPath=AMT103 Encoder Interface.BomDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
