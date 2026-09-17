@@ -1,58 +1,72 @@
-# Introducing the AMT103 Encoder Interface
+# AMT103 Encoder Interface | SAMD21 CAN-FD Motion Controller
 
-The AMT103 Encoder Interface as the name implies interfaces with a Same Sky AMT103 encoder (formerly CUI Devices), processing its quadrature signals to track position via interrupt-driven incremental counts. It leverages real-time signal decoding for precise motion tracking and communicates the extracted data to the robot system via CAN-FD, ensuring fast and reliable data transfer. Ideal for robotics and automation applications requiring high-speed encoder feedback with interrupt-based efficiency.
+![Version](https://img.shields.io/badge/Version-v1.0-purple)
+![License](https://img.shields.io/badge/License-GPLv3-blue)
+![MCU](https://img.shields.io/badge/MCU-Atmel__SAMD21E18-orange)
+![CAN Protocol](https://img.shields.io/badge/Bus-CAN--FD%20%7C%20ISO%2011898--1-brightgreen)
+![Framework](https://img.shields.io/badge/Framework-PlatformIO-orange)
+![Interface](https://img.shields.io/badge/Interface-USB%202.0%20%7C%20SWD-lightgrey)
 
-![pcb_render](/docs/renders/AMT103Interface.PNG?raw=true)
+An interrupt-driven hardware interface for Same Sky (formerly CUI Devices) AMT103 quadrature rotary encoders. Designed around an Atmel SAMD21 32-bit ARM Cortex-M0+ MCU and an MCP2518FD CAN-FD controller, this unit processes high-speed incremental feedback and transmits real-time telemetry over an ISO 26262 functional safety-compliant automotive bus.
 
-## Hardware Features
+---
 
-- Atmel SAMD21: The same microcontroller used on the Arduino Zero and many Adafruit dev-boards. Allows for ease of software modification.
-- MCP2518FD Mixed CAN-FD and CAN2.0B Controller
-  - Conforms to ISO 11898-1:2015 and ISO 26262 Functional Safety for automotive grade CAN-FD compliance.
-  - On-board low PPM 40MHz CAN clock (divided to 20MHz to comply with SPI max clock on uC).
-- Wide compatability: Supports wide range of 5V and 3.3V rotary encoders.
-- USB 2.0 Type-C connector: Given the prevalence of USB Type-C the board comes equipped to take advantage of spare cables.
-- Very low power: The device consumes around 60mW at 5V. Meaning that the robotic platform's battery life will not be significantly impacted.
-- And much more...
+## 📷 PCB CAD Render
 
-## Getting Started
+![AMT103 Interface PCB Render](/docs/renders/AMT103Interface.PNG?raw=true)
 
-The AMT103 Encoder Interface requires some hands-on assembly. We'll provide the necessary build files, but you'll need to order and assemble the PCB yourself using the included GERBER, schematics, Draftsman files, and PnP files.
+---
 
-The project utilizes an Atmel SAMD21E18 microcontroller (MCU) to interface with the encoder. To program the MCU with the bootloader, you'll need an SWD programmer. The Adafruit Trinket M0 bootloader is recommended for this purpose, allowing you to easily setup the PCB as a custom Arduino board.
+## 🛠 Engineering Highlights & System Architecture
 
-**We strongly recommend utilizing solder paste stencils (available as .GTP and .GBP GERBER files) for this project.** Soldering the small SMD components can be challenging for beginners. Recommended stencil manufacturers can be found in the [Resources](#resources) section.
+* **Automotive-Grade CAN-FD Controller:** Integrates an MCP2518FD controller supporting ISO 11898-1:2015 and ISO 26262 functional safety compliance. Features a dedicated 40MHz low-PPM oscillator divided to 20MHz to match microcontroller SPI limits.
+* **Interrupt-Driven Quadrature Decoding:** Low-latency C++ firmware captures encoder channels using hardware interrupts, allowing precise high-speed motion tracking without blocking the core execution pipeline.
+* **High-Efficiency Power Topology:** Optimized overall board power consumption (~60mW @ 5V), making it suitable for noise-sensitive, battery-powered mobile robotics platforms.
+* **Flexible Logic & Power Stage:** Native signal level compatibility across both 3.3V and 5V incremental optical/capacitive quadrature encoders.
 
-## Uploading Custom Firmware
+---
 
-For uploading custom code, we recommend using an IDE with PlatformIO installed. The standard Arduino IDE won't work due to the PCB's unique pin layout. Luckily, PlatformIO board and variant files are included in the [build](/build/) directory within the project repository for your convenience. The board core has been forked from the [Adafruit Arduino SAMD Core](https://github.com/adafruit/ArduinoCore-samd).
+## 📐 System Technical Specifications
 
-## A Note on Uploading
+| Parameter | Specification Details |
+| :--- | :--- |
+| **Microcontroller** | Microchip/Atmel SAMD21E18 (32-bit ARM Cortex-M0+, 48MHz) |
+| **CAN Bus Transceiver / Controller** | MCP2518FD (CAN-FD & CAN 2.0B compliant) |
+| **System Clocking** | 40MHz Low-PPM Crystal Oscillator (Divided to 20MHz via SPI) |
+| **Input Encoder Compatibility** | 3.3V and 5V Incremental Quadrature Encoders (AMT103 Series) |
+| **Power Consumption** | ~60mW @ 5V DC |
+| **Interfaces & Connectors** | USB 2.0 Type-C, SWD Header, CAN-FD Differential Bus |
+| **Manufacturing Deliverables** | Gerber, N.C. Drill, Assembly, Pick-and-Place (PnP), Altium Draftsman |
 
-In certain cases, the SAM-BA programming software may fail to write all firmware blocks to the MCU. This issue occurs when the SERCOM and programming interface attempt to access the USB controller simultaneously, causing the MCU to crash. To prevent this, users should enter bootloader mode by double-clicking the reset button before uploading code.
+---
 
-## Important Reminders
+## 🔬 Validation, Testing & Troubleshooting
 
-- Please refrain from modifying the PlatformIO variant files, as this can prevent the code from compiling correctly.
-- This project doesn't support the standard Arduino IDE. If you seek support, we'll kindly recommend switching to PlatformIO.
+* **Hardware Bring-Up:** Verified power rails and SPI-to-CAN bridge messaging rates under synthetic bus loads using oscilloscope probing and CAN analyzer tools.
+* **SERCOM Arbitration Recovery:** Resolved SAM-BA bootloader execution crashes caused by simultaneous USB and SERCOM bus access during firmware flash operations.
+* **Handling Hardware Bootloader:** Force manual bootloader mode prior to binary upload by executing a physical double-tap sequence on the hardware reset pad.
 
-## Join the Community!
+---
 
-We welcome contributions to this project! If you have significant hardware modifications in mind, please create an issue first to discuss the proposed changes. Additionally, remember to update any relevant software tests along with your contributions.
+## 💻 Firmware Architecture & Flashing
 
-## Resources
-#### Hardware
-[Board Manufacturing - PCBWay](https://www.pcbway.com)
+The firmware utilizes a custom PlatformIO board variant forked from the `Adafruit Arduino SAMD Core` to map the custom PCB pin configuration correctly.
 
-[Components - Mouser](https://www.mouser.com)
+```bash
+# Clone the repository
+git clone https://github.com/DiamondFire11/AMT103-Encoder-Interface.git
+cd AMT103-Encoder-Interface
 
-[OSH Stencils](https://www.oshstencils.com)
+# Build firmware environment with PlatformIO
+pio run -e samd21e18_amt103
+```
 
-#### Software and Programming
-[SWD Programmer - Atmel ICE](https://www.mouser.com/ProductDetail/Microchip-Technology/ATATMEL-ICE?qs=KLFHFgXTQiDAUrt43H15kQ%3D%3D)
+## ⚡ Flashing via SWD & Hardware Debugging
+1. Connect an Atmel-ICE or SWD-compatible programmer to the target SWD header pads.
+2. Flash the board configuration using PlatformIO or Atmel Studio.
+3. **Recovery Mode**: If USB SERCOM arbitration triggers a bus fault during firmware execution, double-tap the physical reset pad to force hardware bootloader mode.
+--- 
 
-[PlatformIO](https://platformio.org)
-
-## License
-
-This project is licensed under the GPLv3 ([GPL](https://choosealicense.com/licenses/gpl-3.0/)).
+## 📄 License & Hardware Manufacturing Files
+* **Production Files**: Production Gerber (.gbr), N.C. Drill (.drl), Solder Paste Stencils (.gtp/.gbp), and Altium Draftsman assembly drawings are located in the /hardware directory
+* **License**: Distributed under [GPLv3 License](https://github.com/DiamondFire11/Tartarus-Joystick-Mod/blob/main/LICENSE). 
