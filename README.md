@@ -7,7 +7,7 @@
 ![Framework](https://img.shields.io/badge/Framework-PlatformIO-orange)
 ![Interface](https://img.shields.io/badge/Interface-USB%202.0%20%7C%20SWD-lightgrey)
 
-An interrupt-driven hardware interface for Same Sky (formerly CUI Devices) AMT103 quadrature rotary encoders. Designed around an Atmel SAMD21 32-bit ARM Cortex-M0+ MCU and an MCP2518FD CAN-FD controller, this unit processes high-speed incremental feedback and transmits real-time telemetry over an ISO 26262 functional safety-compliant automotive bus.
+An interrupt-driven hardware interface for Same Sky (formerly CUI Devices) AMT103 quadrature rotary encoders. Designed around an Atmel SAMD21 32-bit ARM Cortex-M0+ MCU and an MCP2518FD CAN-FD controller, this unit processes high-speed incremental feedback and transmits real-time telemetry over an automotive CAN bus.
 
 ---
 
@@ -19,7 +19,7 @@ An interrupt-driven hardware interface for Same Sky (formerly CUI Devices) AMT10
 
 ## 🛠 Engineering Highlights & System Architecture
 
-* **Automotive-Grade CAN-FD Controller:** Integrates an MCP2518FD controller supporting ISO 11898-1:2015 and ISO 26262 functional safety compliance. Features a dedicated 40MHz low-PPM oscillator divided to 20MHz to match microcontroller SPI limits.
+* **Automotive-Grade CAN-FD Controller:** Integrates an MCP2518FD controller supporting ISO 11898-1:2015. Features a dedicated 40MHz low-PPM oscillator divided to 20MHz to match microcontroller SPI limits.
 * **Interrupt-Driven Quadrature Decoding:** Low-latency C++ firmware captures encoder channels using hardware interrupts, allowing precise high-speed motion tracking without blocking the core execution pipeline.
 * **High-Efficiency Power Topology:** Optimized overall board power consumption (~60mW @ 5V), making it suitable for noise-sensitive, battery-powered mobile robotics platforms.
 * **Flexible Logic & Power Stage:** Native signal level compatibility across both 3.3V and 5V incremental optical/capacitive quadrature encoders.
